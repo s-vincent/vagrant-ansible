@@ -25,7 +25,7 @@ Connect to peer1:
 
 Connect to peer2:
 
-`vagrant ssh peer1
+`vagrant ssh peer2`
 
 To destroy everything:
 
