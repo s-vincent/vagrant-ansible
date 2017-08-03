@@ -1,0 +1,9 @@
+---
+- name: Update apt-packages index (Debian)
+  apt:
+    update_cache: yes
+
+- name: Upgrade apt-packages (Debian)
+  apt:
+    upgrade: dist
+

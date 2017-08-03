@@ -1,0 +1,21 @@
+---
+- name: Include OS-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install basic softwares
+  action: >
+    {{ ansible_pkg_mgr }} name={{ item }} state=latest
+  with_items:
+    - vim
+    - tcpdump
+    - telnet
+    - traceroute
+    - wget
+    - curl
+    - htop
+    - less
+    - ntp
+
+- name: Vim configuration
+  alternatives: name=editor path=/usr/bin/vim link=/usr/bin/editor
+

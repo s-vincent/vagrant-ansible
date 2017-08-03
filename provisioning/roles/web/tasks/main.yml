@@ -1,0 +1,27 @@
+---
+- name: Include OS-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install apache2 and php
+  action: >
+    {{ ansible_pkg_mgr }} name={{ item }} state=present
+  with_items:
+    - "{{ apache2_service }}"
+    - php
+
+- name: Include OS-specific tasks
+  include: "main-{{ ansible_os_family }}.yml"
+
+- name: Create website directory
+  file:
+    path={{ apache2_document_root }} state=directory
+
+- name: Copy PHP website files
+  template:
+    src={{ item }} dest={{ apache2_document_root }}/
+  with_fileglob:
+    - ../templates/php/*.php
+
+- name: Start apache2
+  service: name={{ apache2_service }} state=started
+

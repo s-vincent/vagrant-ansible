@@ -1,0 +1,23 @@
+---
+- name: "Provision web machines"
+  hosts: web-group
+  become: yes
+  become_method: sudo
+  become_user: root 
+  roles:
+    - common
+    - web
+
+- name: "Cleanup packages of provisionned machines"
+  hosts: all
+  become: yes
+  become_method: sudo
+  become_user: root 
+  post_tasks:
+    - name: Cleanup (Debian)
+      shell: "apt-get clean"
+      when: "ansible_os_family == 'Debian'"
+    - name: Cleanup (RedHat)
+      shell: "yum clean all"
+      when: "ansible_os_family == 'RedHat'"
+

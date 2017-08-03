@@ -1,0 +1,7 @@
+---
+- name: Add custom virtualhost (RedHat)
+  template:
+    src=virtualhost.conf.j2 dest=/etc/httpd/conf.d/vagrant.conf
+  notify:
+    - restart apache2
+

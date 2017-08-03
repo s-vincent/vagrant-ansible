@@ -1,0 +1,22 @@
+---
+- name: Add custom virtualhost (Debian)
+  template:
+    src=virtualhost.conf.j2 dest=/etc/apache2/sites-available/vagrant.conf
+  notify:
+    - restart apache2
+
+- name: Enable custom virtualhost (Debian)
+  file:
+    src=/etc/apache2/sites-available/vagrant.conf
+    dest=/etc/apache2/sites-enabled/vagrant.conf
+    state=link
+  notify:
+    - restart apache2
+
+- name: Disable default virtualhost (Debian)
+  file:
+    path=/etc/apache2/sites-enabled/000-default.conf
+    state=absent
+  notify:
+    restart apache2
+

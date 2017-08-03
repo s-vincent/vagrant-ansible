@@ -1,0 +1,11 @@
+---
+- name: Add EPEL repository (RedHat)
+  yum:
+    name: epel-release
+
+- name: Upgrade yum-packages (RedHat)
+  yum:
+    name: '*'
+    state: latest
+    update_cache: true
+

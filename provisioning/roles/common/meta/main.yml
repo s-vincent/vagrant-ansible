@@ -1,0 +1,5 @@
+---
+dependencies:
+  - { role: common_debian, when: "ansible_os_family == 'Debian'" }
+  - { role: common_redhat, when: "ansible_os_family == 'RedHat'" }
+

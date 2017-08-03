@@ -1,0 +1,3 @@
+apache2_document_root: "/var/www/vagrant/"
+php_group_info: "Hello from web group"
+
