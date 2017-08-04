@@ -36,6 +36,10 @@ To destroy everything:
 For the moment only Debian-like (Debian, Ubuntu...) and RedHat-like (RedHat,
 CentOS, Fedora...) boxes are supported for provisioning.
 
+## License
+
+All modules are under BSD-3 license.
+
 ## Links
 
 * https://www.vagrantup.com/docs/index.html
