@@ -38,7 +38,7 @@ CentOS, Fedora...) boxes are supported for provisioning.
 
 ## License
 
-All code are under BSD-3 license.
+All codes are under BSD-3 license.
 
 ## Links
 
